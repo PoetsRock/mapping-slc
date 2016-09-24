@@ -1,9 +1,54 @@
-.lightbox-image-container {
-  display: flex;
-  height: auto;
-  img {
-    width: 100%;
-    object-fit: contain;
+.lightbox-window {
+  top: -5%;
+}
+
+.modal-dialog {
+.modal-content {
+  border-radius: 0;
+  color: #ffffff;
+  background-color: #E7E1E1;
+  border: solid rgba(255, 255, 255, 0.7) 2px;
+  -webkit-box-shadow: -7px 10px 15px rgba(0, 0, 0, .6);
+  -moz-box-shadow: -7px 10px 15px rgba(0, 0, 0, .6);
+  box-shadow: -7px 10px 15px rgba(0, 0, 0, .6);
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  -ms-transform: translateY(10px);
+  -o-transform: translateY(10px);
+  transform: translateY(10px);
+
+  section.lightbox-template {
+    p {
+      color: #000000;
+      margin-top: 3px;
+    }
   }
 
+  span.lightbox-btn {
+    z-index: 600;
+    position: absolute;
+    display: inline-flex;
+    bottom: 50%;
+    height: 10%;
+    width: 6%;
+    stroke: transparent;
+    stroke-width: 2px;
+    ng-md-icon {
+      margin: 0;
+    }
+    &:hover {
+      fill: #023A31;
+    }
+  }
+  span.lightbox-btn.lightbox-btn-left {
+    left: -5em;
+  }
+  span.lightbox-btn.lightbox-btn-right {
+    right: -5em;
+  }
+  span.lightbox-btn.lightbox-btn-top {
+    right: -2em;
+    top: 0;
+  }
+}
 }

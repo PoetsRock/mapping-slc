@@ -1,165 +1,200 @@
 @media (max-width: 972px) {
-    .featured {
+  .featured {
 
-    }
-
-    .animate-small-logo {
-        /*top: -2%;*/
-        /*left: -3%*/
-    }
-
-    .main-overlay {
-        overflow-x: scroll;
-        overflow-y: auto;
-    }
-
-    .footer-overlay form {
-        margin: 0.5% 0;
-    }
-
-    .small-main-logo {
-        left: 8%;
-    }
-
-    .footer-overlay {
-        padding: 2%;
-
-    }
-
-    .footer-overlay .body {
-        padding-top: 0;
-        margin-left: 0;
-    }
-
-    /*applies to all pages that have a static map as background image, so most views other than home page*/
-    .main-content-outer {
-        /*height: auto;*/
-        width: 95%;
-        margin: 0;
-        padding: 1%;
-        border-radius: 10px;
-        border: solid 2px #090909;
-    }
-
-    /*applies to all pages that have a static map as background image, so most views other than home page*/
-    .main-content-inner {
-        /*height: auto;*/
-        /*width: 75%;*/
-        background-color: rgba(255, 248, 231, 0.9);
-        margin: 0;
-        padding: 1%;
-        border-radius: 10px;
-    }
-
-    .page-header {
-        margin: 12% 0 0 5%;
-    }
-
-    .menu-icon {
-        top: 3.5%;
-        left: 6%;
-        transform: scale(1.2);
-    }
-
-}
-
-@media (max-height: 810px) {
-    .sidebar {
-        height: 85%;
-    }
-
-    .menu-text {
-        display: none;
-    }
-
-}
-@media (max-width: 768px) {
-  .main-content-outer {
-  width: 80%;
-  margin: 0 auto;
-  padding: 3%;
-  margin-top: 10%;
   }
-}
-@media (max-height: 540px) {
-    .sidebar {
-        height: 75%;
-    }
+
+
+  .main-overlay {
+    overflow: auto;
+  }
+
+  .footer-overlay form {
+    margin: 0.5% 0;
+  }
+
+  .small-main-logo {
+    left: 8%;
+  }
+
+  .footer-overlay {
+    padding: 2%;
+
+  }
+
+  .footer-overlay .body {
+    padding-top: 0;
+    margin-left: 0;
+  }
+
+  /*applies to all pages that have a static map as background image, so most views other than home page*/
+  .main-content-outer {
+    top: calc(56px + 5%);
+    margin: 0;
+    padding: 1%;
+    border-radius: 10px;
+    border: solid 2px #090909;
+  }
+
+  /*applies to all pages that have a static map as background image, so most views other than home page*/
+  .main-content-inner {
+    background-color: rgba(255, 248, 231, 0.9);
+    margin: 0;
+    padding: 1%;
+    border-radius: 10px;
+  }
+
+  .page-header {
+    margin: 2% 0;
+  }
+
+  .menu-icon {
+    top: 3.5%;
+    left: 6%;
+    transform: scale(1.2);
+  }
 
 }
-@media (max-width: 425px) {
-  .main-content-outer {
-    width: 40%;
-    padding: 0 3%;
-  }
-}
+
 @media (max-height: 1079px) {
-    .core .main-text p {
-        font-size: 1.2em;
-    }
+  .core .main-text p {
+    font-size: 1.2em;
+  }
 
-    .core p {
-        font-size: 1em;
-    }
+  .core p {
+    font-size: 1em;
+  }
 
-    .core .page-header {
-        margin: 20px 0 10px 0;
-    }
+  .core .page-header {
+    margin: 20px 0 10px 0;
+  }
 
-    .pull-right.col-equal {
-        position: relative;
-        right: 7%;
-    }
+  .pull-right.col-equal {
+    position: relative;
+    right: 7%;
+  }
 
-    featured-projects img {
-        height: 15vh;
-    }
+  featured-projects img {
+    height: 15vh;
+  }
 
-    featured-projects ul, featured-projects .grid figure {
-        padding: 0;
-    }
+  featured-projects ul, featured-projects .grid figure {
+    padding: 0;
+  }
 
-    .sidebar-content.active {
-        overflow-y: auto;
-    }
+  .sidebar-content.active {
+    overflow-y: auto;
+  }
 
-    .col-equal {
-        margin-top: 0;
-    }
+  .col-equal {
+    margin-top: 0;
+  }
 
-    .footer-directive .body .div .div .div {
-        padding: 40px;
-    }
+  .footer-directive .body .div .div .div {
+    padding: 40px;
+  }
 }
 
 @media (min-width: 1750px) {
-    .page-view-menu-open {
-        width: calc(100% - 350px);
-        left: 350px;
-    }
+  .page-view-menu-open {
+    width: calc(100% - 350px);
+    left: 350px;
+  }
 }
 
 @media (max-width: 1080px) {
 
-    .core submit-project-directive h3 {
-        font-size: 2rem;
-        margin-bottom: 16px;
-    }
+  .core submit-project-directive h3 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
 
-    .core submit-project-directive a {
-        margin-top: 15px;
-    }
+  .core submit-project-directive a {
+    margin-top: 15px;
+  }
 
 }
 
-@media (mAX-width: 691px) {
-    .footer-overlay {
+/***********************************************************************************/
+/***********************************************************************************
+               TABLET ::  @media (min-width: 601px) and (max-width: 900px)
+/***********************************************************************************
+/***********************************************************************************/
+/*.my-main-menu li.my-trigger {*/
+  /*top: 0;*/
+  /*position: absolute;*/
+/*}*/
 
-    }
-}
+@media (max-width: 900px) {
 
-.core submit-project-directive a {
-    left: 12px;
+  .content {
+    /*background-image: url("http://api.tiles.mapbox.com/v4/poetsrock.j5o1g9on/-111.9940,40.8635,11/1280x720.png32?access_token=pk.eyJ1IjoicG9ldHNyb2NrIiwiYSI6Imc1b245cjAifQ.vwb579x58Ma-CcnfQNamiw");*/
+  }
+
+  .md-toolbar-tools {
+    max-height: 64px;
+  }
+
+  .main-logo {
     position: relative;
-    top: 15px;
+    left: 0;
+    top: 1px;
+  }
+
+  .my-menu-main li.my-trigger {
+    top: 0;
+    position: absolute;
+  }
+
+  .my-menu-main a.fa-bars {
+    color: #ffffff;
+  }
+
+
+  .sidebar {
+    height: 85%;
+  }
+
+  .menu-text {
+    display: none;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  section.ng-scope {
+    max-width: 768px;
+    /*height: 83vh;*/
+  }
+
+
+  .main-content-outer {
+    border: 12px solid #ffffff;
+    border-radius: 0;
+    margin-top: 5%;
+    padding: 4%;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/***********************************************************************************/
+/***********************************************************************************
+               MOBILE  ::  @media (max-width: 600px)
+/***********************************************************************************
+/***********************************************************************************/
+
+@media (max-width: 600px) {
+
+  .content {
+    background-image: none;
+    background-color: rgba(240, 240, 240, 0.8);
+  }
+
+}
+
+@media (max-height: 540px) {
+  .sidebar {
+    height: 75%;
+  }
+
 }

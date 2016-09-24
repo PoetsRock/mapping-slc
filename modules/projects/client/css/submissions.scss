@@ -12,7 +12,6 @@ div.submission-details {
     padding: 5%;
   }
 
-
   div { md-button.md-btn-border {
     padding: 1em;
     margin-bottom: 2rem;
@@ -35,6 +34,24 @@ div.submission-details {
   project-uploader {
     section.project-uploader {
       margin-left: 4rem;
+    }
+  }
+}
+
+
+@media (max-width: 800px) {
+  div.submission-details {
+    div.ideas {
+      margin: 4rem 0;
+      padding: 0;
+      border: none;
+      h3 {
+        margin: 1rem 0;
+        font-size: 2rem
+      }
+      ul {
+        padding: 5%;
+      }
     }
   }
 }

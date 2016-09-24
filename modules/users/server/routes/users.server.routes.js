@@ -2,12 +2,10 @@
 
 module.exports = function (app) {
   // User Routes
-  let express = require('express'),
-      router = express.Router(),
-      users = require('../controllers/users.server.controller'),
-      assets = require('../controllers/users/users.uploader.server.controller'),
-      middleware = require('../../../projects/server/controllers/projects.server.middleware.js'),
-      createMedia = require('../../../projects/server/controllers/projects.server.middleware.js');
+  const express = require('express');
+  const router = express.Router();
+  const users = require('../controllers/users.server.controller');
+  const assets = require('../controllers/users/users.uploader.server.controller');
 
   // Setting up the users profile api
   app.route('/api/v1/users/me').get(users.me);

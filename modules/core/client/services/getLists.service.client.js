@@ -18,7 +18,7 @@
       },
 
       listPrefixes: function listPrefixes() {
-        return this.roles = ['', 'Mr.', 'Ms.', 'Dr.']
+        return this.prefixes = ['', 'Mr.', 'Ms.', 'Dr.']
         .map(function (prefix) {
           return {userPrefix: prefix};
         });
@@ -26,17 +26,17 @@
 
       listRoles: function listRoles() {
         return this.roles = [
-          { name: 'User', value: 'user' },
-          { name: 'Blocked', value: 'blocked' },
-          { name: 'Unregistered', value: 'unregistered' },
-          { name: 'Registered', value: 'registered' },
-          { name: 'Contributor', value: 'contributor' },
-          { name: 'Admin', value: 'admin' },
-          { name: 'Super Admin', value: 'superAdmin' },
+          { value: 'User', id: 'user' },
+          { value: 'Blocked', id: 'blocked' },
+          { value: 'Unregistered', id: 'unregistered' },
+          { value: 'Registered', id: 'registered' },
+          { value: 'Contributor', id: 'contributor' },
+          { value: 'Admin', id: 'admin' },
+          { value: 'Super Admin', id: 'superAdmin' },
         ]
         .map(function (role) {
           return {
-            name: role.name,
+            id: role.id,
             value: role.value
           };
         });
@@ -44,59 +44,72 @@
 
       listStatuses: function listStatuses() {
         return this.statuses = [
-          { auth: 'public', name: 'Received', value: 'received' },
-          { auth: 'public', name: 'Pending', value: 'pending' },
-          { auth: 'public', name: 'Rejected', value: 'rejected' },
-          { auth: 'private', name: 'Soft Rejection', value: 'soft_rejection', publicName: '' },
-          { auth: 'public', name: 'Revise', value: 'revise' },
-          { auth: 'public', name: 'Pulled by User', value: 'userPulled' },
-          { auth: 'private', name: 'Pulled by Admin', value: 'adminPull', publicName: '' },
-          { auth: 'public', name: 'Published', value: 'published' },
-          { auth: 'public', name: 'Accepted', value: 'accepted' }
+          { auth: 'public', value: 'All', id: 'all' },
+          { auth: 'public', value: 'Received', id: 'received' },
+          { auth: 'public', value: 'Pending', id: 'pending' },
+          { auth: 'public', value: 'Rejected', id: 'rejected' },
+          { auth: 'private', value: 'Soft Rejection', id: 'soft_rejection', publicName: 'Rejected' },
+          { auth: 'public', value: 'Revise', id: 'revise' },
+          { auth: 'public', value: 'Pulled by User', id: 'userPulled' },
+          { auth: 'private', value: 'Pulled by Admin', id: 'adminPull', publicName: 'Rejected' },
+          { auth: 'public', value: 'Published', id: 'published' },
+          { auth: 'public', value: 'Accepted', id: 'accepted' }
         ]
         .map(function (status) {
           return {
-            name: status.name,
             value: status.value,
-            auth: status.auth
+            id: status.id,
+            auth: status.auth,
+            publicName: status.publicName || null
           };
         });
       },
 
       listCategories: function listCategories() {
         return this.categories = [
-          { category: 'sortOrder', name: 'Essay', value: 'essay' },
-          { category: 'sortOrder', name: 'Multimedia', value: 'multimedia' },
-          { category: 'sortOrder', name: 'Video', value: 'video' },
-          { category: 'sortOrder', name: 'Audio', value: 'audio' },
-          { category: 'sortOrder', name: 'Photography', value: 'photography' },
-          { category: 'sortOrder', name: 'This Was Here', value: 'this-was-here' }
-        ];
-        // .map(function (category) {
-        //   return { category: category }
-        // });
+          { value: 'Essay', id: 'essay' },
+          { value: 'Multimedia', id: 'multimedia' },
+          { value: 'Video', id: 'video' },
+          { value: 'Audio', id: 'audio' },
+          { value: 'Photography', id: 'photography' },
+          { value: 'This Was Here', id: 'this-was-here' }
+        ]
+        .map(function (category) {
+          return {
+            id: category.id,
+            value: category.value
+          }
+        });
       },
 
       listProjectSorts: function listProjectSorts() {
         return this.projectSorts = [
-          { category: 'sortOrder', name: 'Date Submitted', value: 'createdOn' },
-          { category: 'sortOrder', name: 'Title', value: 'title' },
-          { category: 'sortOrder', name: 'Author Name', value: 'user.lastName' },
-          { category: 'sortOrder', name: 'Submission Status', value: 'status' }
-        ];
+          { value: 'Date Submitted', id: 'createdOn', auth: ['admin'] },
+          { value: 'Publication Date', id: 'publishedOn', auth: ['public'] },
+          { value: 'Title', id: 'title', auth: ['public'] },
+          { value: 'Contributor', id: 'user.lastName', auth: ['public'] },
+          { value: 'Submission Status', id: 'status', auth: ['contributor', 'admin'] }
+        ]
+        .map(function (sort) {
+          return {
+            value: sort.value,
+            id: sort.id,
+            auth: sort.auth
+          };
+        });
       },
 
       listFeaturedProjects: function featuredProjects() {
         return this.featuredProjects = [
-          { category: 'sortOrder', name: 'Featured', value: 'true' },
-          { category: 'sortOrder', name: 'Not Featured', value: 'false' }
+          { value: 'Featured', id: 'true' },
+          { value: 'Not Featured', id: 'false' }
         ];
       },
 
       listYesNo: function listYesNo() {
         return this.yesNo = [
-          { category: 'sortOrder', name: 'Yes', value: 'true' },
-          { category: 'sortOrder', name: 'No', value: 'false' }
+          { value: 'Yes', id: 'true' },
+          { value: 'No', id: 'false' }
         ];
       }
 

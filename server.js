@@ -11,7 +11,8 @@
 
 var app = require('./config/lib/app');
 var server = app.start();
-//console.log('process.env:\n', process.env);
+// console.log('process.env:\n', process.env);
+// console.log('\n\n\n\nwe\'ll be back after this commercial break\n\n\n\n');
 console.log('process.env.NODE_ENV:\n', process.env.NODE_ENV);
 
 console.log('   __    __                            __     __                                            __       __');

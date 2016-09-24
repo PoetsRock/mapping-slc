@@ -17,8 +17,18 @@ h1, h3 {
     box-sizing: border-box;
 }
 
-html, body {
+html {
     overflow: hidden;
+}
+
+body {
+    overflow: auto;
+}
+
+@media screen and (max-width: 960px) {
+    html, body {
+        overflow: auto;
+    }
 }
 
 body {
@@ -32,6 +42,18 @@ body {
     * {
         text-rendering: optimizeLegibility;
     }
+}
+
+.main-content-outer, .main-content-inner, .container, .main-view {
+    z-index: 100;
+}
+.background {
+    /*display: none;*/
+    z-index: 0;
+}
+
+.page-header {
+    border: none;
 }
 
 hr {
@@ -423,6 +445,42 @@ div:nth-child(1) > div.row > div > div > p:nth-child(1)::first-letter {
     left: 0;
     top: -4px;
 }
+
+@media screen and (max-width: 960px) {
+  .content {
+    margin-top: 56px;
+  }
+
+  body, .container {
+    padding: 0;
+  }
+
+  md-toolbar.md-toolbar {
+    width: 100%;
+    position: fixed;
+  }
+
+    .main-logo {
+        position: absolute;
+        display: inline-flex;
+        z-index: 2;
+        /*left: inherit;*/
+        /*top: inherit;*/
+    }
+
+    .my-menu-wrapper {
+      /*overflow-x: hidden;*/
+      overflow-y: auto;
+    }
+}
+
+/*fd
+
+.content-style-sidebar ul li a {
+    padding: 1%;
+    }
+    main-menu.css:165
+*/
 
 .logo-overlay {
     position: relative;

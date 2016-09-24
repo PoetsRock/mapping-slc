@@ -1,8 +1,8 @@
-<section class="container map" data-ng-controller="HomeController" data-ng-init="mapFunction()">
+<section>
 
   <!--logo-->
   <div data-ng-show="!overlayActive && !menuOpen">
-    <img src="modules/core/client/img/brand/mapping.png" class="small-main-logo logo-on-page img-responsive" data-ng-click="toggleOverlayFunction('home')"/>
+    <div class="main-logo" data-ng-click="toggleOverlayFunction('home')"></div>
   </div>
 
   <main-page-overlay></main-page-overlay>
@@ -10,16 +10,12 @@
   <projects-side-bar></projects-side-bar>
 
   <!--call MapBox map-->
-  <div id="map" class="map" data-ng-class="{'leaflet-tile-gray': !shadeMap}">
-    <map-view-controls></map-view-controls>
-  </div>
-  
+  <map-view-directive></map-view-directive>
 
   <div id="main-menu" class="main-menu">
     <main-menu></main-menu>
   </div>
-  
-  
-  <div id="info" class="info" data-ng-class="{'info-project-details': toggleDetails}"></div>
+
+  <!--<div id="info" class="info" data-ng-class="{'info-project-details': toggleDetails}"></div>-->
 
 </section>

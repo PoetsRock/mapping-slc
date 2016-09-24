@@ -1,44 +1,29 @@
-<div id="main-menu" class="main-menu">
-  <main-menu></main-menu>
-</div>
+<section data-ng-controller="ContributorController" data-ng-init="getContributors()" class="contributors">
+  <div layout="column" class="contrib">
 
-<section class="content background" data-ng-controller="RandomMapController"
-         ng-style="{'background-image': 'url(' + staticMap.mapUrl + ')', 'background-size' : 'cover' }"
-         data-ng-class="{'page-view-menu-open': toggleSecondMenu}">
-  <section class="container">
-    <div class="main-logo" ui-sref="home"></div>
+    <div layout="row">
 
-    <div class="main-content-outer">
-      <section data-ng-controller="ContributorController" data-ng-init="getContributors()" class="contributors">
-        <div class="contrib">
-          <div class="main-content-inner" layout="column">
+      <h1 flex="40">Contributors</h1>
 
-            <div layout="row">
+      <form flex="50" flex-offset="10">
+        <md-input-container flex="">
+          <label>Search Contributors</label>
+          <input type="text" data-ng-model="searchContributors.$" id="search">
+        </md-input-container>
+      </form>
 
-              <h1 flex="40">Contributors</h1>
-
-              <form flex="50" flex-offset="10">
-                <md-input-container flex="">
-                  <label>Search Contributors</label>
-                  <input type="text" data-ng-model="searchContributors.$" id="search">
-                </md-input-container>
-              </form>
-
-            </div>
-
-            <md-grid-list md-cols="2" md-row-height="4:3" md-gutter="1em" class="contrib-list" layout="row">
-              <md-grid-tile data-ng-repeat="contributor in contributors | filter:searchContributors"
-                            class="contrib-view md-whiteframe-1dp" flex-gt-xs="40"
-                            ui-sref="contributor({ 'userId' : contributor._id })">
-                <img ng-src="{{contributor.profileImage.thumbImageUrl}}" class="contrib-tile-image img-responsive"
-                     alt="contributor profile image"/>
-                <md-grid-tile-footer data-ng-bind="contributor.displayName"></md-grid-tile-footer>
-              </md-grid-tile>
-            </md-grid-list>
-
-          </div>
-        </div>
-      </section>
     </div>
-  </section>
+
+    <md-grid-list md-cols="2" md-row-height="4:3" md-gutter="1em" class="contrib-list" layout="row">
+      <md-grid-tile data-ng-repeat="contributor in contributors | filter:searchContributors"
+                    class="contrib-view md-whiteframe-1dp"
+                    flex-gt-xs="40"
+                    ui-sref="users.contributor({ 'userId' : contributor._id })">
+        <img ng-src="{{contributor.profileImage.thumbImageUrl}}" class="contrib-tile-image img-responsive"
+             alt="contributor profile image"/>
+        <md-grid-tile-footer data-ng-bind="contributor.displayName"></md-grid-tile-footer>
+      </md-grid-tile>
+    </md-grid-list>
+
+  </div>
 </section>

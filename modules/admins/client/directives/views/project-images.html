@@ -13,8 +13,10 @@
     <div data-ng-show="project.imageGallery.length > 0">
 
       <div class="project-image-gallery" data-ng-repeat="image in project.imageGallery track by $index">
-        <a data-ng-href="{{image.imageUrl}}" target="_blank"><img data-ng-src="{{image.thumbImageUrl}}"
-                                                                  class="img-responsive"></a>
+
+        <a data-ng-href="{{image.imageUrl}}" target="_blank">
+          <img data-ng-src="{{image.thumbImageUrl}}" class="img-responsive">
+        </a>
 
         <div data-ng-show="editImages">
           <md-button class="md-raised" data-ng-click="deleteImageById(image, $index)">Remove</md-button>

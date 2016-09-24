@@ -1,14 +1,14 @@
 'use strict';
 
-const mongoose = require('mongoose'),
-  Project = mongoose.model('Project'),
-  Core = mongoose.model('Core'),
-  validator = require('validator');
+const validator = require('validator');
 
 /**
  * Render the main application page
  */
 exports.renderIndex = function (req, res) {
+
+  // console.log('here, here in the render me indexed: `req`:\n', req);
+  // console.log('\n\nreq.header`:\n', req.header);
 
   var safeUserObject = null;
   if (req.user) {
@@ -27,9 +27,11 @@ exports.renderIndex = function (req, res) {
 
   res.render('modules/core/server/views/index', {
     user: req.user || null
+
 //todo - the `safeUserObject` is new addition to MEANjs stack -- need to look at docs for this
     //user: safeUserObject
   });
+
 };
 
 /**
@@ -63,29 +65,3 @@ exports.renderNotFound = function (req, res) {
     }
   });
 };
-
-/**
- *
- * Basic CRUD operations by a sourceId
- *
- */
-
-
-//myObject.findAndModify({
-//  query: {
-//    sourceId: data.sourceId
-//  },
-//  update: {
-//    $set: {
-//      name: data.name,
-//      active: data.active
-//    },
-//    $setOnInsert: {
-//      createdAt: now,
-//      sourceId: shortid.generate()
-//    }
-//  },
-//  fields: excludeFields,
-//  upsert: true,
-//  new: true
-//}, callback);

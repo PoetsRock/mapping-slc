@@ -20,16 +20,12 @@
       vm.$onInit = function() {
         $scope.projectFeaturedName = 'Not Featured';
         if($scope.project.featured) { $scope.projectFeaturedName = 'Featured'; }
-        $scope.toggleEdit = true;
-        // console.log('$scope.statusSorts:\n', $scope.statusSorts);
+        // $scope.toggleEdit = true;
       };
-
 
       $scope.statusSorts = getLists.listStatuses();
       $scope.featuredProjects = getLists.listFeaturedProjects();
-      $scope.adminCategorySorts = getLists.listCategories();
-      // $scope.statusFiltered = $scope.project.status[0].toCapitalCase();
-
+      $scope.categories = getLists.listCategories();
 
 
       (function getFeaturedProjs() {
@@ -102,16 +98,17 @@
         $scope.updateProject();
       };
 
+
+      var modalText = '<ng-md-icon icon="warning"></ng-md-icon><h3>Confirm to Publish Project</h3>' +
+          '<p>Please click \'Publish\' to confirm</p>';
+      var confirmPublishModal = $mdDialog.confirm()
+      .htmlContent(modalText)
+      .ariaLabel('Confirm Publishing Project')
+      .ok('Publish')
+      .cancel('Cancel');
+
       // todo the confirm success toast modal works; however the cancel toast does not work
       function showConfirmPublishModal() {
-        var modalText = '<ng-md-icon icon="warning"></ng-md-icon><h3>Confirm to Publish Project</h3>' +
-            '<p>Please click \'Publish\' to confirm</p>';
-        var confirmPublishModal = $mdDialog.confirm()
-        .htmlContent(modalText)
-        .ariaLabel('Confirm Publishing Project')
-        .ok('Publish')
-        .cancel('Cancel');
-
         $mdDialog.show(confirmPublishModal)
         .then(function (confirm) {
           if (confirm) {

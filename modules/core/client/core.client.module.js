@@ -1,7 +1,13 @@
-'use strict';
+(function (app) {
+  'use strict';
 
-// Use Application configuration module to register a new module
-ApplicationConfiguration.registerModule('core');
+  app.registerModule('core');
+  app.registerModule('core.routes', ['ui.router']);
+}(ApplicationConfiguration));
+
+
+
+
 // console.log('   __    __                            __     __                                            __       __');
 // console.log('  /  |  /  |                          /  |   /  |                                          /  \     /  |');
 // console.log('  $$ |  $$ | ______   __   __        _$$ |_  $$ |____    ______    ______    ______        $$  \   /$$ | ______    ______    ______    ______    ______');

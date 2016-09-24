@@ -1,42 +1,27 @@
-<div id="main-menu" class="main-menu"><main-menu></main-menu></div>
+<section data-ng-controller="ContributorController" data-ng-init="findContributor()" class="contributors">
+  <div class="contrib-view">
+    <div class="row">
+      <div class="col-md-12">
 
-<section class="content background" data-ng-controller="RandomMapController"
-         ng-style="{'background-image': 'url(' + staticMap.mapUrl + ')', 'background-size' : 'cover' }"
-         data-ng-class="{'page-view-menu-open': toggleSecondMenu}">
-  <section class="container">
-    <div class="main-logo" ui-sref="home"></div>
-
-    <div class="main-content-outer">
-      <section data-ng-controller="ContributorController" data-ng-init="findContributor()" class="contributors">
-        <div class="contrib-view">
           <div class="row">
-            <div class="col-md-12">
-              <div class="main-content-inner">
-
-                <div class="row">
-                  <div><h1 class="col-md-6">{{contributor.firstName}} {{contributor.lastName}}</h1></div>
-                  <div><img class="col-md-6 pull-right" data-ng-src="{{contributor.profileImage.thumbImageUrl}}"/></div>
-                </div>
-
-                <div class="row">
-                  <div><p class="col-md-12">{{contributor.bio}}</p></div>
-                </div>
-
-                <hr/>
-
-                <h4>Projects by {{contributor.firstName}}</h4>
-                <div layout="column">
-                  <p flex="100" data-ng-repeat="contributorProject in contributorProjects">
-                    <a data-ng-href="/projects/{{contributorProject._id}}"> {{contributorProject.title}}</a>
-                  </p>
-                </div>
-
-              </div>
-
-            </div>
+            <div><h1 class="col-md-6">{{contributor.firstName}} {{contributor.lastName}}</h1></div>
+            <div><img class="col-md-6 pull-right" data-ng-src="{{contributor.profileImage.thumbImageUrl}}"/></div>
           </div>
-        </div>
-      </section>
+
+          <div class="row">
+            <div><p class="col-md-12">{{contributor.bio}}</p></div>
+          </div>
+
+          <hr/>
+
+          <h4>Projects by {{contributor.firstName}}</h4>
+          <div layout="column">
+            <p flex="100" data-ng-repeat="contributorProject in contributorProjects">
+              <a data-ng-href="/projects/{{contributorProject._id}}"> {{contributorProject.title}}</a>
+            </p>
+          </div>
+
+      </div>
     </div>
-  </section>
+  </div>
 </section>

@@ -4,7 +4,8 @@
   angular.module('projects')
   .config(function (LightboxProvider) {
     LightboxProvider.templateUrl = 'modules/core/client/views/lightbox-template.html';
-    LightboxProvider.fullScreenMode = false;
+    LightboxProvider.fullScreenMode = true;
+    LightboxProvider.windowClass = 'lightbox-window';
     LightboxProvider.getImageUrl = function (image) {
       return image.imageUrl;
     };
@@ -24,16 +25,16 @@
     };
     return directive;
 
-    function controller($scope, Lightbox) {
-      $scope.findOne();
+    function controller($scope, userFavoritesService, Lightbox) {
       this.$onInit = function () {
+        $scope.project = $scope.findOne();
+        console.log('Lightbox:\n', Lightbox);
+
       };
 
       $scope.toggleFavProjectFn = function () {
-        userFavoritesService.toggleFavProject($scope.isFavorite, $scope.project,
-            function (err, data) {
-              $scope.isFavorite = data;
-            });
+        userFavoritesService.toggleFavProject($scope.isFavorite, $scope.project);
+        $scope.isFavorite = !$scope.isFavorite;
       };
 
 

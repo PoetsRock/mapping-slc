@@ -248,24 +248,6 @@ div.list-group > a > div {
     }
 }
 
-/* User Favorites Icon for View Single Project view*/
-.view-project .fa-heart-o, .view-project .fa-heart {
-    float: right;
-}
-
-.view-project .fa.fa-heart {
-    margin-top: 2%;
-    font-size: 3rem;
-}
-
-.favorite-true {
-    color: rgba(3, 59, 50, 1);
-}
-
-.fa.fa-heart.favorite-false {
-    color: rgba(0, 0, 0, 0.3);
-}
-
 /*project status page*/
 
 project-status-user-info edit-profile {

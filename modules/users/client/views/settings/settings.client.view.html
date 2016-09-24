@@ -1,45 +1,32 @@
-<div id="main-menu" class="main-menu"><main-menu></main-menu></div>
-<section class="content background" data-ng-controller="RandomMapController"
-         ng-style="{'background-image': 'url(' + staticMap.mapUrl + ')', 'background-size' : 'cover' }"
-         data-ng-class="{'page-view-menu-open': toggleSecondMenu}">
-
-  <section class="container">
-    <div class="main-logo" ui-sref="home"></div>
-
-    <div class="main-content-outer">
-
-      <section ng-controller="UserController" class="main-content-inner">
-        <div class="page-header">
-          <h1>Settings</h1>
-        </div>
-        <div class="row user-settings">
-          <nav class="col-sm-3 col-md-3">
-            <ul class="nav nav-pills nav-stacked">
-              <li ui-sref-active="active">
-                <a ui-sref="settings.profile">Edit Profile</a>
-              </li>
-              <li ui-sref-active="active">
-                <a ui-sref="settings.picture">Profile Picture</a>
-              </li>
-              <li ui-sref-active="active">
-                <a ui-sref="settings.accounts">Manage Social Accounts</a>
-              </li>
-              <li ui-sref-active="active">
-                <a ui-sref="settings.favorites">Favorites</a>
-              </li>
-              <li ui-sref-active="active">
-                <a ui-sref="settings.submissions">Submissions</a>
-              </li>
-              <li ui-sref-active="active" ng-show="user.provider === 'local'">
-                <a ui-sref="settings.password">Change Password</a>
-              </li>
-            </ul>
-          </nav>
-          <div class="col-sm-9 col-md-8 settings-view">
-            <div ui-view></div>
-          </div>
-        </div>
-      </section>
+<section ng-controller="UserController">
+  <div class="page-header">
+    <h1>Settings</h1>
+  </div>
+  <div class="row user-settings">
+    <nav class="col-sm-3 col-md-3">
+      <ul class="nav nav-pills nav-stacked">
+        <li ui-sref-active="active">
+          <a ui-sref="users.settings.profile">Edit Profile</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="users.settings.picture">Profile Picture</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="users.settings.accounts">Manage Social Accounts</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="users.settings.favorites">Favorites</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="users.settings.submissions">Submissions</a>
+        </li>
+        <li ui-sref-active="active" ng-show="user.provider === 'local'">
+          <a ui-sref="users.settings.password">Change Password</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="col-sm-9 col-md-8 settings-view">
+      <div ui-view></div>
     </div>
-  </section>
+  </div>
 </section>

@@ -3,37 +3,96 @@
 //Setting up route
 angular.module('projects').config(['$stateProvider',
   function ($stateProvider) {
+    var tempPageTitle = '';
 
     // Projects state routing
-    $stateProvider.state('listProjects', {
+    $stateProvider
+    .state('projects', {
+      abstract: true,
       url: '/projects',
-      templateUrl: 'modules/projects/client/views/list-projects.client.view.html'
+      templateUrl: 'modules/core/client/views/wrapper.client.view.html',
     })
-    .state('submissionDetails', {
-      url: '/projects/submission-details',
+    .state('projects.listProjects', {
+      url: '/list',
+      templateUrl: 'modules/projects/client/views/list-projects.client.view.html',
+      controller: 'ProjectsController',
+      controllerAs: 'vm',
+      data: {
+        pageTitle: 'Projects'
+      }
+    })
+    .state('projects.submissionDetails', {
+      url: '/submission-details',
       templateUrl: 'modules/projects/client/views/submission-details-client-view.html',
+      controller: 'ProjectsController',
+      controllerAs: 'vm',
       data: {
         pageTitle: 'Submission Details'
       }
     })
-    .state('createProject', {
-      url: '/projects/create',
+    .state('projects.createProject', {
+      url: '/create',
       templateUrl: 'modules/projects/client/views/create-project.client.view.html',
       loginRequired: true
     })
-    .state('viewProject', {
-      url: '/projects/:projectId',
-      templateUrl: 'modules/projects/client/views/view-project.client.view.html'
-    })
-    .state('viewProjectPreview', {
-      url: '/projects/:projectId/preview',
+    .state('projects.viewProject', {
+      url: '/:projectId',
       templateUrl: 'modules/projects/client/views/view-project.client.view.html',
+      controller: 'ProjectsController',
+      controllerAs: 'vm',
       // resolve: {
-      //   checkProjectStatus: checkProjectStatus
+      //   checkSubStatus: function checkSubStatus($stateParams, $http, $state) {
+      //     return $http.get()
+      //     .then(function successCb(project) {
+      //       console.log('$stateProvider:\n', $stateProvider);
+      //       console.log('project.status:\n', project.status);
+      //       if(project.status !== 'published') {
+      //         return $state.go('home');
+      //       }
+      //       tempPageTitle = project.title;
+      //       return project;
+      //     }, function errorCb(err) {
+      //       return console.error('error returning project on route resolve:\n', err);
+      //     });
+      //   }
+      // },
+      // data: {
+      //   pageTitle: tempPageTitle
       // }
     })
-    .state('projectStatus', {
-      url: '/projects/:projectId/status',
+    .state('projects.viewProjectPreview', {
+      url: '/:projectId/preview',
+      templateUrl: 'modules/projects/client/views/view-project.client.view.html',
+      controller: 'ProjectsController',
+      controllerAs: 'vm',
+      resolve: {
+        checkSubStatus: function checkSubStatus($stateParams, $http, $state, Authentication) {
+          return $http.get()
+          .then(function successCb(project) {
+            console.log('$stateProvider:\n', $stateProvider);
+            console.log('project.status:\n', project.status);
+            if(project.status === 'published') {
+              // return $state.go(viewProject({ 'projectId': project._id }));
+              return project;
+            } else if(Authentication.user.roles[0] !=='admin' || Authentication.user.roles[0] !=='superadmin') {
+              return $state.go('listProjects');
+            }
+            tempPageTitle = project.title;
+            return project
+          }, function errorCb(err) {
+            return console.error('error returning project on route resolve:\n', err);
+          });
+        }
+      },
+      data: {
+        pageTitle: tempPageTitle + ' - Preview'
+      }
+    })
+    .state('projects.projectStatus', {
+      url: '/:projectId/status',
+      templateUrl: 'modules/projects/client/views/project-for-submission.client.view.html',
+      controller: 'ProjectsController',
+      controllerAs: 'vm',
       data: {
         pageTitle: 'Submission Status',
         authenticate: true,
@@ -41,7 +100,7 @@ angular.module('projects').config(['$stateProvider',
       },
       resolve: {
         authenticatedUser: function checkAuthentication($stateParams, $http, Authentication, $state) {
-          return $http.get(`api/v1/projects/${$stateParams.projectId}`)
+          return $http.get('api/v1/projects/' + $stateParams.projectId)
           .then(function(project) {
             if (project.data.user._id === Authentication.user._id) {
               return Authentication.user;
@@ -52,8 +111,7 @@ angular.module('projects').config(['$stateProvider',
             return console.error('err: ', err);
           });
         }
-      },
-      templateUrl: 'modules/projects/client/views/project-for-submission.client.view.html'
+      }
     });
   }
 ]);

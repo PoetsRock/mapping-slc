@@ -7,7 +7,7 @@
       <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex-xs="" flex-gt-xs="50" layout="column">
           <md-card data-ng-repeat="userFavorite in userFavorites">
-            <md-card-header ui-sref="contributor({ userId: publishedProject.user._id })">
+            <md-card-header ui-sref="users.contributor({ userId: publishedProject.user._id })">
               <md-card-avatar>
                 <img class="md-user-avatar" data-ng-src="{{userFavorite.user.profileImage.thumbImageUrl}}">
               </md-card-avatar>
@@ -15,7 +15,7 @@
                 <span class="md-title">{{userFavorite.user.firstName}} {{userFavorite.user.lastName}}</span>
               </md-card-header-text>
             </md-card-header>
-            <div ui-sref="viewProject({projectId: userFavorite.id})">
+            <div ui-sref="projects.viewProject({projectId: userFavorite.id})">
             <img data-ng-src="{{userFavorite.mainImage.thumbImageUrl}}" class="md-card-image" alt="Favorite Projects">
             <md-card-title>
               <md-card-title-text>

@@ -1,18 +1,5 @@
-<div id="main-menu" class="main-menu"><main-menu></main-menu></div>
+<section data-ng-controller="ProjectsController">
 
-<section class="content background" data-ng-controller="RandomMapController"
-         ng-style="{'background-image': 'url(' + staticMap.mapUrl + ')', 'background-size' : 'cover' }"
-         data-ng-class="{'page-view-menu-open': toggleSecondMenu}">
+  <view-project></view-project>
 
-  <section class="container">
-    <div class="main-logo" ui-sref="home"></div>
-
-    <div class="main-content-outer">
-      <section data-ng-controller="ProjectsController" class="main-content-inner">
-
-        <view-project></view-project>
-
-      </section>
-    </div>
-  </section>
 </section>

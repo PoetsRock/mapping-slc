@@ -1,9 +1,36 @@
-.lightbox-image-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: auto; }
-  .lightbox-image-container img {
-    width: 100%;
-    -o-object-fit: contain;
-       object-fit: contain; }
+.lightbox-window {
+  top: -5%; }
+
+.modal-dialog .modal-content {
+  border-radius: 0;
+  color: #ffffff;
+  background-color: #E7E1E1;
+  border: solid rgba(255, 255, 255, 0.7) 2px;
+  box-shadow: -7px 10px 15px rgba(0, 0, 0, 0.6);
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px); }
+  .modal-dialog .modal-content section.lightbox-template p {
+    color: #000000;
+    margin-top: 3px; }
+  .modal-dialog .modal-content span.lightbox-btn {
+    z-index: 600;
+    position: absolute;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    bottom: 50%;
+    height: 10%;
+    width: 6%;
+    stroke: transparent;
+    stroke-width: 2px; }
+    .modal-dialog .modal-content span.lightbox-btn ng-md-icon {
+      margin: 0; }
+    .modal-dialog .modal-content span.lightbox-btn:hover {
+      fill: #023A31; }
+  .modal-dialog .modal-content span.lightbox-btn.lightbox-btn-left {
+    left: -5em; }
+  .modal-dialog .modal-content span.lightbox-btn.lightbox-btn-right {
+    right: -5em; }
+  .modal-dialog .modal-content span.lightbox-btn.lightbox-btn-top {
+    right: -2em;
+    top: 0; }

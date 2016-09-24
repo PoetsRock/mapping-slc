@@ -1,0 +1,50 @@
+<!--<section class="background" ng-style="{'background-image': 'url(' + staticMap.mapUrl + ')', 'background-size' : 'cover' }" ng-if="desktop"></section>-->
+
+<section layout-gt-sm="column">
+
+  <md-content ng-if="!desktop">
+    <md-toolbar class="md-toolbar">
+      <div class="md-toolbar-tools" layout="" layout-align="space-between center">
+        <div id="main-menu-mobile" class="main-menu">
+          <main-menu></main-menu>
+        </div>
+
+        <div class="main-logo" ui-sref="home"></div>
+
+        <md-button class="md-icon-button" aria-label="More">
+          <ng-md-icon icon="more_vert"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+  </md-content>
+
+  <div id="main-menu" class="main-menu" ng-if="desktop">
+    <main-menu></main-menu>
+  </div>
+
+
+
+  <section class="content" >
+    <section class="container">
+
+      <div class="main-logo" ui-sref="home" ng-if="desktop"></div>
+
+
+      <div class="main-content-outer" layout="" layout-align="center center" ng-if="desktop || tablet">
+
+        <section class="main-content-inner" ng-if="desktop">
+          <section class="main-view" ui-view></section>
+        </section>
+
+        <section ui-view class="mobile" ng-if="tablet"></section>
+
+      </div>
+
+      <section ui-view class="" ng-if="mobile"></section>
+
+
+    </section>
+
+  </section>
+
+</section>

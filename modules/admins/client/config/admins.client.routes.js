@@ -7,7 +7,7 @@ angular.module('admins').config(['$stateProvider',
     $stateProvider.state('admin', {
       abstract: true,
       url: '/admin',
-      template: '<ui-view>',
+      templateUrl: 'modules/core/client/views/wrapper.client.view.html',
     //data property is inherited by child states, so you can place something like this authenticate flag in the parent.
       data: {
         authenticate: true,
@@ -15,6 +15,24 @@ angular.module('admins').config(['$stateProvider',
       },
       authPermissions: {
         roles: ['admin', 'superUser']
+      },
+      resolve: {
+        // authenticateAdmin: function(authenticateAdminService) {
+        //   return authenticateAdminService();
+        // }
+        authenticateAdmin: function authenticateAdminService($http, $state, Authentication) {
+          return $http.get('api/v1/users/' + Authentication.user._id)
+          .then(function (adminUser) {
+            if (adminUser.data.roles[0] === 'admin' && 'superadmin') {
+              console.log('adminUser.data:\n', adminUser.data);
+              return adminUser.data;
+            } else {
+              $state.go('home');
+            }
+          }, function (err) {
+            return console.error('error returning admin authentication on route resolve:\n', err);
+          });
+        }
       }
     })
     //admin projects routes
@@ -42,7 +60,6 @@ angular.module('admins').config(['$stateProvider',
         pageTitle: 'Admin | Edit Project'
       }
     })
-
     //admin contact form routes
     .state('admin.adminListMessages', {
       url: '/messages',

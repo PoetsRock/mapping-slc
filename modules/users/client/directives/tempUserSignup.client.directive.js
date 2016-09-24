@@ -53,7 +53,7 @@
       $scope.resendVerificationEmail = function () {
         console.log('$scope.tempUser INSIDE FN:\n', $scope.tempUser);
         console.log('$scope.tempUser._id: ', $scope.tempUser.email);
-        $http.post(`/api/v1/auth/signup/tempUsers/emails/${$scope.tempUser.email}/resend`, $scope.tempUser)
+        $http.post('/api/v1/auth/signup/tempUsers/emails/' + $scope.tempUser.email + '/resend', $scope.tempUser)
         .then(function resendSuccess() {
           callModal();
         })
@@ -82,9 +82,9 @@
 
       var callModal = function() {
         emailLink($scope.tempUser.email);
-        var modalText = `<h3>Almost done!</h3>` +
-          `<p>Please check your email to complete the registration.</p>` +
-          `<br />` +
+        var modalText = '<h3>Almost done!</h3>' +
+          '<p>Please check your email to complete the registration.</p>' +
+          '<br />' +
           '<p>Go to <a href="' + emailProvider.url + '" target="_blank">' + emailProvider.name + '</a></p>';
         $mdDialog.show(
           $mdDialog.confirm()

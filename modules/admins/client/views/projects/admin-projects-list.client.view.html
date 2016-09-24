@@ -1,20 +1,5 @@
-<div id="main-menu" class="main-menu">
-  <main-menu></main-menu>
-</div>
+<section class="admin" data-ng-controller="ProjectsController as vm">
 
-<section class="content background" data-ng-controller="RandomMapController"
-         ng-style="{'background-image': 'url(' + staticMap.mapUrl + ')', 'background-size' : 'cover' }"
-         data-ng-class="{'page-view-menu-open': toggleSecondMenu}">
+  <projects-list></projects-list>
 
-  <section class="container">
-    <div class="main-logo" ui-sref="home"></div>
-
-    <div class="main-content-outer">
-      <div class="main-content-inner admin" data-ng-controller="ProjectsController" >
-
-        <projects-list></projects-list>
-
-      </div>
-    </div>
-  </section>
 </section>

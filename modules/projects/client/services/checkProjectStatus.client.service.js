@@ -10,7 +10,7 @@
 
 
   function checkProjectStatus($stateParams, $http, Authentication, $state) {
-    return $http.get(`api/v1/projects/${$stateParams.projectId}`)
+    return $http.get('api/v1/projects/' + $stateParams.projectId)
     .then(function(project) {
       if (project.data.user._id === Authentication.user._id) {
         return Authentication.user;

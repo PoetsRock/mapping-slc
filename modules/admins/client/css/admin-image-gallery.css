@@ -15,11 +15,11 @@
 section.project-images {
     padding: .25vw;
     font-size: 0;
-    display: -ms-flexbox;
     -ms-flex-wrap: wrap;
     -ms-flex-direction: column;
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
+    display: -ms-flexbox;
     display: -webkit-box;
     display: flex;
 }

@@ -6,17 +6,6 @@ angular.module('admins').controller('AdminsController', ['$scope', '$http', '$st
     $scope.authentication = Authentication;
     $scope.isAdmin = AdminAuthService;
 
-    //function run($rootScope, $state, Authentication) {
-    //
-    //	$rootScope.$on('$stateChangeStart',
-    //		function(event, toState, toParams, fromState, fromParams) {
-    //			if ( toState.authenticate && !Authentication.isLoggedIn() ) {
-    //				$state.go( 'login' );
-    //			}
-    //			event.preventDefault();
-    //		}
-    //	)};
-
 
     var run = function ($rootScope, $state, Authentication) {
       $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {

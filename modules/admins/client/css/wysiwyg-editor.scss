@@ -1,0 +1,44 @@
+.text-editor {
+  padding: 20px;
+  .fr-basic .fr-element {
+    padding: 30px;
+    min-height: 150px;
+  }
+  header {
+    display: flex;
+  }
+}
+
+.text-editor-window {
+  min-height: 550px;
+}
+
+
+
+.fr-popup.fr-desktop.fr-active {
+  left: 5px;
+  top: 70px;
+  > .fr-arrow {
+    margin-left: -105px;
+  }
+}
+
+.sample {
+  padding-bottom: 50px;
+  margin-left: 30px;
+  border-top: 1px solid lightgray;
+}
+
+.manual {
+  margin-bottom: 20px;
+}
+
+
+/* styling for preview tabs */
+.tabsdemoStaticTabs .after-tabs-area > span {
+  margin-top: 25px;
+  padding-right: 15px;
+  vertical-align: middle;
+  line-height: 30px;
+  height: 35px;
+}

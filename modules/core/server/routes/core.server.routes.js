@@ -16,10 +16,14 @@ module.exports = function (app) {
   app.route('/*').get(core.renderIndex);
 
 
+
   app.use(require('prerender-node')
-    // Setup Prerender.io for Localhost Testing
-    .set('prerenderServiceUrl', 'http://localhost:1337/')
     // Setup Prerender.io for Production
     .set('prerenderToken', config.PRERENDER_TOKEN));
+
+  if(process.env.NODE_ENV !== 'production') {
+    app.use(require('prerender-node')
+      .set('prerenderServiceUrl', 'http://localhost:1337/'));
+  }
 
 };

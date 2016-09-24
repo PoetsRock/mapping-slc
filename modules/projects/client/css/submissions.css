@@ -26,3 +26,14 @@ div.submission-details .md-btn-border {
 
 .project-create project-uploader section.project-uploader {
   margin-left: 4rem; }
+
+@media (max-width: 800px) {
+  div.submission-details div.ideas {
+    margin: 4rem 0;
+    padding: 0;
+    border: none; }
+    div.submission-details div.ideas h3 {
+      margin: 1rem 0;
+      font-size: 2rem; }
+    div.submission-details div.ideas ul {
+      padding: 5%; } }

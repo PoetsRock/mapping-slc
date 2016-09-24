@@ -5,7 +5,7 @@
 
     <span><i class="fa fa-chevron-right project-close" data-ng-click="showSidebar(0, null, true);"></i></span>
 
-    <header ui-sref="viewProject({projectId: project.projectId})">
+    <header ui-sref="projects.viewProject({projectId: project.projectId})">
       <h3>{{project.projectTitle}}</h3>
       <img class="img-responsive" data-ng-src="{{project.thumbImageUrl}}"/>
     </header>

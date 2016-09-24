@@ -66,6 +66,17 @@ ng-md-icon[size="48"] {
   width: 50px;
 }
 
+md-card {
+  img {
+    max-width: 100%;
+  }
+  md-card-title-text {
+    max-width: 100%;
+    .md-headline {
+      max-width: 100%;
+    }
+  }
+}
 
 
 

@@ -40,9 +40,6 @@
   <link rel="stylesheet" href="{{cssFile}}">
   {% endfor %}
 
-  <!--these 2 scripts are supposed to be used in production for the angular material icons-->
-  <!--<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>-->
-  <!--<script src="//cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.1.8/svg-morpheus.js"></script>-->
 
   <!-- Google reCAPTCHA widget -->
   <script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=vcRecaptchaApiLoaded" async defer></script>
@@ -50,30 +47,19 @@
 
 <body class="ng-cloak">
   <!--facebook comments plugin - BEGIN -->
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '533891100115890',
-        xfbml      : true,
-        version    : 'v2.5'
-      });
-    };
-
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=319019724936363";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
   <!--facebook comments plugin - END -->
 
-<section class="content">
-  <section class="container">
+
     {% block content %}{% endblock %}
-  </section>
-</section>
+
 
 <!--Embedding The User Object-->
 <script type="text/javascript">

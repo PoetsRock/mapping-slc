@@ -1,33 +1,15 @@
-<div id="main-menu" class="main-menu"><main-menu></main-menu></div>
+<section ng-controller="AuthenticationController" class="main-content-inner row md-whiteframe-5dp">
 
-<section class="content background" data-ng-controller="RandomMapController"
-         ng-style="{'background-image': 'url(' + staticMap.mapUrl + ')', 'background-size' : 'cover' }"
-         data-ng-class="{'page-view-menu-open': toggleSecondMenu}">
+  <h3 class="col-md-12 text-center">Sign in using your social accounts</h3>
 
-  <section class="container">
-    <div class="main-logo" ui-sref="home"></div>
+  <div class="col-md-12 text-center signin-icons">
 
-    <div class="main-content-outer">
+    <a data-ng-click="callOauthProvider('/api/v1/auth/facebook')" class="undecorated-link"><i
+      class="fa fa-facebook"></i></a>
+    <a ng-click="callOauthProvider('/api/v1/auth/twitter')" class="undecorated-link"><i
+      class="fa fa-twitter"></i></a>
+  </div>
 
+  <div ui-view></div>
 
-      <section ng-controller="AuthenticationController" class="main-content-inner md-whiteframe-5dp">
-
-        <div class="row">
-
-          <h3 class="col-md-12 text-center">Sign in using your social accounts</h3>
-
-          <div class="col-md-12 text-center signin-icons">
-
-            <a data-ng-click="callOauthProvider('/api/v1/auth/facebook')" class="undecorated-link"><i
-              class="fa fa-facebook"></i></a>
-            <a ng-click="callOauthProvider('/api/v1/auth/twitter')" class="undecorated-link"><i
-              class="fa fa-twitter"></i></a>
-          </div>
-          <div ui-view></div>
-        </div>
-      </section>
-
-    </div>
-
-  </section>
 </section>

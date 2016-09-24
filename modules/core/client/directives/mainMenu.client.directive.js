@@ -3,9 +3,9 @@
 angular.module('core').directive('mainMenu', function (MenuService) {
   return {
     restrict: 'EA',
-    templateUrl: 'modules/core/client/directives/views/main-menu.client.view.html',
-    
+    templateUrl: '/modules/core/client/directives/views/main-menu.client.view.html',
     controller: function ($scope, $http, Authentication) {
+
       $scope.user = Authentication.user;
 
       $scope.itemsMenu = MenuService.itemsMenu;

@@ -5,95 +5,71 @@
 
       <a id="triggerMenu" class="fa fa-3x fa-bars"></a>
 
-      <nav ng-mouseenter="showAll|| menuHover($event)" id="main-menu-nav" class="my-menu-wrapper"
-           ng-class="{'my-open-part' : showPart, 'my-open-all' : showAll, '': showNone}">
+      <nav ng-mouseenter="showAll|| menuHover($event)" id="main-menu-nav" class="my-menu-wrapper" ng-class="{'my-open-part' : showPart, 'my-open-all' : showAll, '': showNone}">
 
         <div class="my-scroller">
 
           <ul class="my-menu">
-            <div class="content-style-sidebar">
-              <ul>
 
-
-                <li layout="" data-ng-if="homePageCheck()" >
-                  <a ui-sref="home" data-ng-click="toggleOverlayFunction('home', 'home')"><i class="fa fa-home"></i>Home</a>
+                <li layout="" layout-align="start center" ui-sref="home" data-ng-click="toggleOverlayFunction('home', 'home')">
+                  <i class="fa fa-home"></i>
+                  <div>Home</div>
                 </li>
 
-                <li layout="">
-                  <a ui-sref="listProjects"><i class="fa fa-map-marker"></i>Projects</a>
+                <li layout="" layout-align="start center" ui-sref="projects.listProjects">
+                  <i class="fa fa-map-marker"></i>
+                  <div>Projects</div>
                 </li>
 
-                <li>
-                  <a ui-sref="contributors">
-                    <i class="fa fa-users"></i>
-                    Contributors
-                  </a>
+                <li layout="" layout-align="start center" ui-sref="users.contributors">
+                  <i class="fa fa-users"></i>
+                  <div>Contributors</div>
                 </li>
 
-                <li>
-                  <a ui-sref="submissionDetails">
-                    <i class="fa fa-file"></i>
-                    Submit a Project
-                  </a>
+                <li layout="" layout-align="start center" ui-sref="projects.submissionDetails">
+                  <i class="fa fa-file"></i>
+                  <span>Submit a Project</span>
                 </li>
 
-                <li>
-                  <a ui-sref="aboutMappingSlc">
-                    <i class="fa fa-map-signs"></i>
-                    About Mapping SLC
-                  </a>
+                <li layout="" layout-align="start center" ui-sref="aboutMappingSlc">
+                  <i class="fa fa-map-signs"></i>
+                  <div>About Mapping SLC</div>
                 </li>
 
-                <li>
-                  <a ui-sref="createContact">
-                    <i class="fa fa-envelope"></i>
-                    Contact Us
-                  </a>
+                <li layout="" layout-align="start center" ui-sref="createContact">
+                  <i class="fa fa-envelope"></i>
+                  <div>Contact Us</div>
                 </li>
 
-                <li layout="" data-ng-show="user.roles[0] !== undefined">
-                  <a ui-sref="settings.profile">
-                    <i class="fa fa-cog"></i>
-                    Account Settings
-                  </a>
+                <li layout="" layout-align="start center" data-ng-show="user.roles[0] !== undefined" ui-sref="users.settings.profile">
+                  <i class="fa fa-cog"></i>
+                  <div>Account Settings</div>
                 </li>
 
-                <li layout="" data-ng-show="user.roles[0] === undefined">
-                  <a ui-sref="authentication.signin">
-                    <i class="fa fa-sign-in"></i>
-                    Sign In
-                  </a>
+                <li layout="" layout-align="start center" data-ng-show="user.roles[0] === undefined" ui-sref="users.authentication.signin">
+                  <i class="fa fa-sign-in"></i>
+                  <div>Sign In</div>
                 </li>
 
 
-                <li layout="" data-ng-show="user.roles[0] === undefined">
-                  <a ui-sref="authentication.signup">
-                    <i class="fa fa-user-plus"></i>
-                    Sign Up
-                  </a>
+                <li layout="" layout-align="start center" data-ng-show="user.roles[0] === undefined" ui-sref="users.authentication.signup">
+                  <i class="fa fa-user-plus"></i>
+                  <div>Sign Up</div>
                 </li>
 
 
-                <li layout="" data-ng-show="user.roles[0] === 'admin'">
-                  <a ui-sref="admin.dashboard">
-                    <i class="fa fa-star"></i>
-                    Admin Panel
-                  </a>
+                <li layout="" layout-align="start center" data-ng-show="user.roles[0] === 'admin'" ui-sref="admin.dashboard">
+                  <i class="fa fa-star"></i>
+                  <div>Admin Panel</div>
                 </li>
 
-                <li layout="" data-ng-show="user.roles[0] !== undefined">
-                  <a href="/api/v1/auth/signout" target="_self">
-                    <i class="fa fa-sign-out"></i>
-                    Sign Out
-                  </a>
+                <li layout="" layout-align="start center" data-ng-show="user.roles[0] !== undefined" data-ng-href="/api/v1/auth/signout" target="_self">
+                  <i class="fa fa-sign-out"></i>
+                  <div>Sign Out</div>
                 </li>
-
-
-              </ul>
-            </div>
-
 
           </ul>
+
         </div>
 
       </nav>

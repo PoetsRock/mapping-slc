@@ -18,7 +18,7 @@
       var vm = this;
 
       var getAssociatedProjects = function (userId) {
-        $http.get(`/api/v1/contributors/${userId}/projects?publishedOnly=false`)
+        $http.get('/api/v1/contributors/' +  userId + '/projects?publishedOnly=false')
         .then(function successCb(projects) {
           $scope.userProjects = projects.data;
         }, function errorCb(errorData) {
@@ -29,8 +29,17 @@
       vm.$onInit = function () {
         getAssociatedProjects($scope.user._id);
       };
-      console.log('$scope.subStatuses:\n', $scope.subStatuses);
-      console.log('$scope.subStatuses:\n', $scope.subStatuses[0].status);
+
+      $scope.propName = '';
+      $scope.filterBy = function (propName) {
+        if(propName.id==='all') {
+          return $scope.propName = '';
+        }
+        $scope.propName = propName.id;
+      };
+
+
+
     }
   }
 }());

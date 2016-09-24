@@ -11,11 +11,11 @@
 
         <ul class="uib-dropdown-menu">
           <li ui-sref-active="active">
-            <a ui-sref="authentication.signin">Sign In</a>
+            <a ui-sref="users.authentication.signin">Sign In</a>
           </li>
           <li class="divider-vertical"></li>
           <li ui-sref-active="active">
-            <a ui-sref="authentication.signup">Sign Up</a>
+            <a ui-sref="users.authentication.signup">Sign Up</a>
           </li>
         </ul>
       </li>
@@ -28,16 +28,16 @@
         </a>
         <ul class="uib-dropdown-menu" role="menu">
           <li ui-sref-active="active">
-            <a ui-sref="settings.profile">Edit Profile</a>
+            <a ui-sref="users.settings.profile">Edit Profile</a>
           </li>
           <li ui-sref-active="active">
-            <a ui-sref="settings.picture">Change Profile Picture</a>
+            <a ui-sref="users.settings.picture">Change Profile Picture</a>
           </li>
           <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
-            <a ui-sref="settings.password">Change Password</a>
+            <a ui-sref="users.settings.password">Change Password</a>
           </li>
           <li ui-sref-active="active">
-            <a ui-sref="settings.accounts">Manage Social Accounts</a>
+            <a ui-sref="users.settings.accounts">Manage Social Accounts</a>
           </li>
           <li class="divider"></li>
           <li>

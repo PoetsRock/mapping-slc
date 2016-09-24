@@ -49,6 +49,14 @@ ng-md-icon[size="48"] {
   height: 50px;
   width: 50px; }
 
+md-card img {
+  max-width: 100%; }
+
+md-card md-card-title-text {
+  max-width: 100%; }
+  md-card md-card-title-text .md-headline {
+    max-width: 100%; }
+
 .list-projects md-content {
   background-color: transparent; }
 

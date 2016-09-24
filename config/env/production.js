@@ -144,8 +144,10 @@ module.exports = {
     HERE_KEY: process.env.HERE_KEY,
     HERE_SECRET: process.env.HERE_SECRET,
     HERE_CALLBACK_URL: '/api/v1/auth/here/callback',
+    MAPBOX_SECRET_TOKEN: process.env.MAPBOX_SECRET_TOKEN,
     MAPBOX_KEY: process.env.MAPBOX_KEY,
-    MAPBOX_SECRET: process.env.MAPBOX_SECRET,
+    MAPBOX_PUBLIC_TOKEN: process.env.MAPBOX_PUBLIC_TOKEN,
+    // MAPBOX_KEY_EDU_ACCT: process.env.MAPBOX_KEY_EDU_ACCT,
     MAPBOX_CALLBACK_URL: '/api/v1/auth/mapbox/callback',
     SOUND_CLOUD_KEY: process.env.SOUND_CLOUD_KEY,
     SOUND_CLOUD_SECRET: process.env.SOUND_CLOUD_SECRET

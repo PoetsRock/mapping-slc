@@ -5,7 +5,14 @@ angular.module('users').config(['$stateProvider',
   function ($stateProvider) {
     // Users state routing
     $stateProvider
-      .state('settings', {
+
+    .state('users', {
+      abstract: true,
+      // url: '/users',
+      templateUrl: 'modules/core/client/views/wrapper.client.view.html',
+    })
+
+      .state('users.settings', {
         abstract: true,
         url: '/settings',
         templateUrl: 'modules/users/client/views/settings/settings.client.view.html',
@@ -14,75 +21,75 @@ angular.module('users').config(['$stateProvider',
           roles: ['user', 'registered', 'contributor', 'admin', 'superUser']
         }
       })
-      .state('settings.profile', {
+      .state('users.settings.profile', {
         url: '/profile',
         templateUrl: 'modules/users/client/views/settings/edit-profile.client.view.html',
         data: {
           pageTitle: 'Profile'
         }
       })
-      .state('settings.password', {
+      .state('users.settings.password', {
         url: '/password',
         templateUrl: 'modules/users/client/views/settings/change-password.client.view.html',
         data: {
           pageTitle: 'Password'
         }
       })
-      .state('settings.accounts', {
+      .state('users.settings.accounts', {
         url: '/accounts',
         templateUrl: 'modules/users/client/views/settings/manage-social-accounts.client.view.html',
         data: {
           pageTitle: 'Social Media'
         }
       })
-      .state('settings.favorites', {
+      .state('users.settings.favorites', {
         url: '/favorites',
         templateUrl: 'modules/users/client/views/settings/favorites.client.view.html',
         data: {
           pageTitle: 'Favorites'
         }
       })
-      .state('settings.submissions', {
+      .state('users.settings.submissions', {
         url: '/submissions',
         templateUrl: 'modules/users/client/views/settings/submissions-list.client.view.html',
         data: {
           pageTitle: 'Submissions'
         }
       })
-      .state('settings.submissionsView', {
+      .state('users.settings.submissionsView', {
         url: '/:projectId/status/',
         templateUrl: 'modules/users/client/views/settings/submissions-view.client.view.html',
         data: {
           pageTitle: 'Submission'
         }
       })
-      .state('settings.picture', {
+      .state('users.settings.picture', {
         url: '/picture',
         templateUrl: 'modules/users/client/views/settings/change-profile-picture.client.view.html',
         data: {
           pageTitle: 'Profile Image'
         }
       })
-      .state('authentication', {
+      .state('users.authentication', {
         abstract: true,
         url: '/authentication',
         templateUrl: 'modules/users/client/views/authentication/authentication.client.view.html'
       })
-      .state('authentication.signin', {
+      .state('users.authentication.signin', {
         url: '/signin?err',
         templateUrl: 'modules/users/client/views/authentication/signin.client.view.html',
         data: {
           pageTitle: 'Signin'
         }
       })
-      .state('authentication.signup', {
+      .state('users.authentication.signup', {
         url: '/signup',
         templateUrl: 'modules/users/client/views/authentication/signup.client.view.html',
         data: {
           pageTitle: 'Signup'
         }
       })
-      .state('signupVerify', {
+      .state('users.signupVerify', {
         url: '/signup-verify?tempUserId&tempToken',
         templateUrl : 'modules/users/client/views/authentication/signup-verify.client.view.html',
         controller: 'AuthenticationController',
@@ -91,12 +98,12 @@ angular.module('users').config(['$stateProvider',
           pageTitle: 'New User Registration'
         }
       })
-      .state('password', {
+      .state('users.password', {
         abstract: true,
         url: '/password',
         template: '<ui-view/>'
       })
-      .state('password.forgot', {
+      .state('users.password.forgot', {
         url: '/forgot',
         templateUrl: 'modules/users/client/views/password/forgot-password.client.view.html',
         params: {
@@ -106,37 +113,37 @@ angular.module('users').config(['$stateProvider',
           pageTitle: 'Password forgot'
         }
       })
-      .state('password.reset', {
+      .state('users.password.reset', {
         abstract: true,
         url: '/reset',
         template: '<ui-view/>'
       })
-      .state('password.reset.invalid', {
+      .state('users.password.reset.invalid', {
         url: '/invalid',
         templateUrl: 'modules/users/client/views/password/reset-password-invalid.client.view.html',
         data: {
           pageTitle: 'Password reset invalid'
         }
       })
-      .state('password.reset.success', {
+      .state('users.password.reset.success', {
         url: '/success',
         templateUrl: 'modules/users/client/views/password/reset-password-success.client.view.html',
         data: {
           pageTitle: 'Password reset success'
         }
       })
-      .state('password.reset.form', {
+      .state('users.password.reset.form', {
         url: '/:token',
         templateUrl: 'modules/users/client/views/password/reset-password.client.view.html',
         data: {
           pageTitle: 'Password reset form'
         }
 })
-      .state('contributors', {
+      .state('users.contributors', {
         url: '/contributors',
         templateUrl: 'modules/users/client/views/contributors/contributors.client.list.html'
       })
-      .state('contributor', {
+      .state('users.contributor', {
         url: '/contributors/:userId',
         templateUrl: 'modules/users/client/views/contributors/contributors.client.view.html'
       });

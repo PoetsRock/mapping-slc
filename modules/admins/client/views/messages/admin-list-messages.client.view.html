@@ -1,69 +1,50 @@
-<div id="main-menu" class="main-menu"><main-menu></main-menu></div>
+<section data-ng-controller="ContactsController" data-ng-init="find()" class="admin">
 
-<section class="content background" data-ng-controller="RandomMapController"
-         ng-style="{'background-image': 'url(' + staticMap.mapUrl + ')', 'background-size' : 'cover' }"
-         data-ng-class="{'page-view-menu-open': toggleSecondMenu}">
+    <div class="admin-messages">
 
-  <section class="container">
+      <div class="admin-nav">
+        <md-button class="md-raised" aria-label="admin home page" ui-sref="admin.dashboard"><ng-md-icon icon="home"></ng-md-icon>Admin Home Page</md-button>
+        <md-button class="md-raised" aria-label="admin project page" ui-sref="admin.adminProjectsQueue"><ng-md-icon icon="view_list"></ng-md-icon>Admin Project Page</md-button>
+      </div>
 
-    <div class="main-content-outer">
+      <div class="page-header">
+        <h1>Messages</h1>
+      </div>
 
-      <section class="main-content-inner" data-ng-controller="ContactsController" data-ng-init="find()">
-
-
-        <div class="admin">
-
-          <div class="admin-messages">
-
-            <div class="admin-nav">
-              <md-button class="md-raised" aria-label="admin home page" ui-sref="admin.dashboard"><ng-md-icon icon="home"></ng-md-icon>Admin Home Page</md-button>
-              <md-button class="md-raised" aria-label="admin project page" ui-sref="admin.adminProjectsQueue"><ng-md-icon icon="view_list"></ng-md-icon>Admin Project Page</md-button>
-            </div>
-
-            <div class="page-header">
-              <h1>Messages</h1>
-            </div>
-
-            <table class="table table-bordered table-striped">
-              <thead ts-wrapper>
-              <tr>
-                <th ts-criteria="firstName">First Name</th>
-                <th ts-criteria="lastName|lowercase" ts-default>Last Name</th>
-                <th ts-criteria="email">E-Mail</th>
-                <th ts-criteria="created">Date Sent</th>
-                <!--<th ts-criteria="read">Read</th>-->
-                <!--<th ts-criteria="flag">Flag</th>-->
-              </tr>
-              </thead>
+      <table class="table table-bordered table-striped">
+        <thead ts-wrapper>
+        <tr>
+          <th ts-criteria="firstName">First Name</th>
+          <th ts-criteria="lastName|lowercase" ts-default>Last Name</th>
+          <th ts-criteria="email">E-Mail</th>
+          <th ts-criteria="created">Date Sent</th>
+          <!--<th ts-criteria="read">Read</th>-->
+          <!--<th ts-criteria="flag">Flag</th>-->
+        </tr>
+        </thead>
 
 
-              <tbody>
+        <tbody>
 
-              <tr data-ng-repeat="contact in contacts | orderBy: '-created'"
-                  data-ng-class="{'message-read' : contact.read}" data-ng-click="viewMessage(contact._id)">
-                <td>{{ contact.firstName }}</td>
-                <td>{{ contact.lastName }}</td>
-                <!--<td>{{ contact.email }}</td>-->
-                <td>{{ contact._id }}</td>
-                <td>{{ contact.created | date : short }}</td>
-                <!--<td>{{ contact.read }}</td>-->
-                <!--<td align="center"><i class="fa fa-flag" data-ng-click="toggleFlag = !toggleFlag" data-ng-class="{'select' : toggleFlag = true}"></i></td>-->
-              </tr>
+        <tr data-ng-repeat="contact in contacts | orderBy: '-created'"
+            data-ng-class="{'message-read' : contact.read}" data-ng-click="viewMessage(contact._id)">
+          <td>{{ contact.firstName }}</td>
+          <td>{{ contact.lastName }}</td>
+          <!--<td>{{ contact.email }}</td>-->
+          <td>{{ contact._id }}</td>
+          <td>{{ contact.created | date : short }}</td>
+          <!--<td>{{ contact.read }}</td>-->
+          <!--<td align="center"><i class="fa fa-flag" data-ng-click="toggleFlag = !toggleFlag" data-ng-class="{'select' : toggleFlag = true}"></i></td>-->
+        </tr>
 
-              </tbody>
+        </tbody>
 
-            </table>
+      </table>
 
-            <!--see `modules/core/client/services/utils.client.service.js` for pagination script`-->
-            <uib-pagination boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength"
-                            ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+      <!--see `modules/core/client/services/utils.client.service.js` for pagination script`-->
+      <uib-pagination boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength"
+                      ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
 
 
-          </div>
-        </div>
-      </section>
     </div>
-
-
-  </section>
 </section>

@@ -2,8 +2,8 @@
 
 // Projects controller
 //noinspection JSAnnotator
-angular.module('projects').controller('ProjectsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects', '$http', '$sce', 'ApiKeys', 'GeoCodeApi', '$rootScope', 'AdminAuthService', 'UserService', 'User', 'UserData', 'AdminUpdateUser', '$state', 'UtilsService', 'confirmModalService', '$uibModal', '$window', '$log', 'notify', '$document', 'publishedProjectsService', 'userFavoritesService', 'Upload',
-  function ($scope, $stateParams, $location, Authentication, Projects, $http, $sce, ApiKeys, GeoCodeApi, $rootScope, AdminAuthService, UserService, User, UserData, AdminUpdateUser, $state, UtilsService, confirmModalService, $uibModal, $window, $log, notify, $document, publishedProjectsService, userFavoritesService, Upload) {
+angular.module('projects').controller('ProjectsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Projects', '$http', '$sce', 'ApiKeys', 'GeoCodeApi', '$rootScope', 'AdminAuthService', 'UserService', 'User', 'UserData', 'AdminUpdateUser', '$state', 'UtilsService', '$window', 'userFavoritesService',
+  function ($scope, $stateParams, $location, Authentication, Projects, $http, $sce, ApiKeys, GeoCodeApi, $rootScope, AdminAuthService, UserService, User, UserData, AdminUpdateUser, $state, UtilsService, $window, userFavoritesService) {
     $scope.user = Authentication.user;
     $scope.isAdmin = AdminAuthService;
     $rootScope.signInBeforeProject = false;
@@ -12,7 +12,6 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
     $scope.userToEdit = {};
     $scope.images = [];
     $scope.files = [];
-    $scope.logo = '../../../modules/core/img/brand/mapping_150w.png';
     $scope.override = false;
     $scope.isFavorite = false;
     $scope.trustAsHtml = $sce.trustAsHtml;
@@ -187,7 +186,18 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
             }
           }
           getUserFavoriteStoriesFn($scope.project.user.favorites, $scope.project.id);
+
+          // console.log('$scope.project._id:\n', $scope.project._id);
+          // console.log('$scope.project.user.favorites:\n', $scope.project.user.favorites);
+          //
+          // console.log('\n\nBREAK\n\n');
+          //
+          // console.log('$scope.project.userIdFavoritesList:\n', $scope.project.userIdFavoritesList);
+          // console.log('$scope.project.user._id:\n', $scope.project.user._id);
+
         });
+
+
     };
 
 

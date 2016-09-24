@@ -8,3 +8,20 @@
     }
   }
 }
+
+.admin .admin-projects md-input-container {
+  ng-md-icon.sort-order-icon {
+    font-size: 48px;
+  }
+  ng-md-icon.sort-order-icon.sort-order-icon-dynamic {
+    transform: rotate(180deg);
+  }
+}
+
+
+section.admin-project-editor {
+  .wysiwyg-view {
+    margin: 2rem 0 0 1rem;
+  }
+}
+

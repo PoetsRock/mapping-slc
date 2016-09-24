@@ -1,45 +1,28 @@
-<div id="main-menu" class="main-menu"><main-menu></main-menu></div>
+<section data-ng-controller="ProjectsController" data-ng-init="find()" class="admin">
 
-<section class="content background" data-ng-controller="RandomMapController"
-         ng-style="{'background-image': 'url(' + staticMap.mapUrl + ')', 'background-size' : 'cover' }"
-         data-ng-class="{'page-view-menu-open': toggleSecondMenu}">
-
-  <section class="container">
-    <div class="main-logo" ui-sref="home"></div>
-
-    <div class="main-content-outer">
-
-      <section data-ng-controller="ProjectsController" data-ng-init="find()" class="main-content-inner">
-        <div class="admin">
-
-          <div class="page-header">
-            <h1>Admin Panel</h1>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4">
-              <a href="/admin/list-users" class="widget-box">
-                <i class="fa fa-users"></i><br/>
-                <span>User Menu</span>
-              </a>
-            </div>
-            <div class="col-md-4">
-              <a href="/admin/projects-queue" class="widget-box">
-                <i class="fa fa-th"></i><br/>
-                <span>Projects</span>
-              </a>
-            </div>
-            <div class="col-md-4">
-              <a href="/admin/messages" class="widget-box">
-                <i class="fa fa-envelope"></i><br/>
-                <span>Messages</span>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-      </section>
+    <div class="page-header">
+      <h1>Admin Panel</h1>
     </div>
-  </section>
+
+    <div layout="row">
+      <div flex="33">
+        <a href="/admin/list-users" class="widget-box">
+          <i class="fa fa-users"></i><br/>
+          <span>User Menu</span>
+        </a>
+      </div>
+      <div flex="33">
+        <a href="/admin/projects-queue" class="widget-box">
+          <i class="fa fa-th"></i><br/>
+          <span>Projects</span>
+        </a>
+      </div>
+      <div flex="33" class="widget-box" ui-sref="admin.adminListMessages">
+        <!--<a href="/admin/messages" class="widget-box">-->
+          <i class="fa fa-envelope"></i><br/>
+          <span>Messages</span>
+        <!--</a>-->
+      </div>
+    </div>
+
 </section>

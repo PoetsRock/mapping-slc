@@ -1,30 +1,21 @@
 <div data-ng-show="toggleEdit" layout="column" class="project-admin-features">
-
-  <md-input-container flex="" layout="" layout-align="">
-    <label>Status: {{project.status[0] | toCapitalCase}}</label>
-    <md-select id="status" data-ng-model="project.status" ng-model-options="{trackBy: '$value.value'}" data-ng-change="projectStatusChanged()" md-container-class="admin-select">
-        <md-option ng-value="status" ng-repeat="status in statusSorts">
-          {{status.name}}
+    <md-select data-ng-model="project.status" ng-model-options="{trackBy: '$value.id'}" data-ng-change="projectStatusChanged()" md-container-class="admin-select" placeholder="Status" aria-label="Project Status">
+      <md-select-label>{{status.value}}</md-select-label>
+        <md-option ng-repeat="status in statusSorts" ng-value="status">
+          {{status.value}}
         </md-option>
     </md-select>
-  </md-input-container>
 
-
-  <md-input-container flex="" layout="" layout-align="">
-    <label>Category</label>
-    <md-select data-ng-model="project.category" id="category">
-      <md-optgroup label="Project Category">
-        <md-option ng-value="categorySort.value" ng-repeat="categorySort in adminCategorySorts">
-          {{categorySort.name}}
-        </md-option>
-      </md-optgroup>
+    <md-select data-ng-model="project.category" ng-model-options="{trackBy: '$value.id'}" aria-label="Project Category" placeholder="Category">
+      <md-option ng-repeat="category in categories" ng-value="category">
+        {{category.value}}
+      </md-option>
     </md-select>
-  </md-input-container>
 
 
   <md-input-container flex="" layout="" layout-align="" data-ng-show="project.status[0]==='published'">
     <label>Featured</label>
-    <md-switch ng-model="project.featured" name="admin-panel-project" aria-label="Featured Project" data-ng-change="updateFeatured()">{{projectFeaturedName}}
+    <md-switch ng-model="project.featured" name="adminPanelProject" aria-label="Featured Project" data-ng-change="updateFeatured()">{{projectFeaturedName}}
     </md-switch>
   </md-input-container>
 

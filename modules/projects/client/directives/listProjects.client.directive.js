@@ -16,13 +16,11 @@
   listProjects.$inject = [];
 
   function listProjects() {
-    var directive = {
+    return {
       restrict: 'EA',
       templateUrl: '/modules/projects/client/directives/views/list-projects.html',
       controller: controller
     };
-
-    return directive;
 
     function controller($scope, $http, Authentication, localStorageService, UtilsService) {
       var ts0 = window.performance.now();
@@ -66,6 +64,7 @@
         }, function (err) {
           console.error('list-projects error:\n', err);
         });
+
       };
 
       $scope.showMap = function () {
@@ -119,9 +118,9 @@
       }();
 
       function setTime() {
-        localStorageService.set(`testDur[${localStorageService.get('count')}]`, ts1 - ts0);
+        localStorageService.set('testDur[' + localStorageService.get('count') + ']', ts1 - ts0);
         count += localStorageService.get('count');
-        localStorageService.set(`count`, count);
+        localStorageService.set('count', count);
       }
 
       setTime();

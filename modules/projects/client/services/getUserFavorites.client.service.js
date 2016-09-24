@@ -28,8 +28,7 @@ angular.module('projects').factory('userFavoritesService', ['$http', 'Authentica
         });
       },
 
-      toggleFavProject: function (isFavorite, project, callback) {
-      var err;
+      toggleFavProject: function (isFavorite, project) {
       isFavorite = !isFavorite;
       var updateFavoriteObj = { favorite: project.id };
 
@@ -41,14 +40,12 @@ angular.module('projects').factory('userFavoritesService', ['$http', 'Authentica
         updateFavoriteObj.isFavorite = true;
       }
       $http.put('/api/v1/users/' + user._id, updateFavoriteObj)
-        .then(function (resolved, rejected) {
-          if (rejected) {
-            console.log('error removing project: var `rejected`\n:', rejected);
-          }
+        .then(function (resolved) {
           console.log('SUCCESS!!: var `resolved`\n:', resolved);
+          return resolved;
+        }, function errorCallback(err) {
+          return err;
         });
-
-      return callback(err, updateFavoriteObj.isFavorite);
     }
 
   }

@@ -1,54 +1,41 @@
-<div id="main-menu" class="main-menu"><main-menu></main-menu></div>
+<section data-ng-controller="ContactsController" data-ng-init="findOne()" class="admin">
 
-<section class="content background" data-ng-controller="RandomMapController"
-         ng-style="{'background-image': 'url(' + staticMap.mapUrl + ')', 'background-size' : 'cover' }"
-         data-ng-class="{'page-view-menu-open': toggleSecondMenu}">
+  <div class="admin-messages">
 
-  <section class="container">
-
-    <div class="main-content-outer admin">
-
-      <section data-ng-controller="ContactsController" data-ng-init="findOne()" class="main-content-inner">
-
-        <div class="admin">
-
-          <div class="admin-messages">
-
-            <div class="admin-nav">
-              <md-button class="md-raised" aria-label="admin home page" ui-sref="admin.dashboard"><ng-md-icon icon="home"></ng-md-icon>Admin Home Page</md-button>
-            </div>
-
-            <div class="page-header">
-              <h1 data-ng-bind="contact.name"></h1>
-            </div>
-
-            <div class="row">
-
-
-              <div class="row">
-                <!--<div class="col-md-5" data-ng-bind="contact.fullName"></div>-->
-                <div class="col-md-8">{{contact.firstName}} {{contact.lastName}}</div>
-                <div class="col-md-2" data-ng-bind="contact.email"></div>
-              </div>
-              <div class="row">
-                <div data-ng-bind="contact.message"></div>
-              </div>
-              <small>
-                <em class="text-muted">
-                  <span data-ng-bind="contact.created | date:'mediumDate'"></span>
-                  from
-                  <span data-ng-bind="contact.user.displayName"></span>
-                </em>
-              </small>
-            </div>
-
-            <!--<div layout="">-->
-              <md-button data-ng-show="isAdmin.user" class="md-raised btn-warning" layout-align="end center" aria-label="delete" data-ng-click="remove()"><ng-md-icon icon="delete_forever"></ng-md-icon></md-button>
-            <!--</div>-->
-
-          </div>
-        </div>
-      </section>
+    <div class="admin-nav">
+      <md-button class="md-raised" aria-label="admin home page" ui-sref="admin.dashboard">
+        <ng-md-icon icon="home"></ng-md-icon>
+        Admin Home Page
+      </md-button>
     </div>
-  </section>
+
+    <div class="page-header">
+      <h1 data-ng-bind="contact.name"></h1>
+    </div>
+
+    <div class="row">
+
+
+      <div class="row">
+        <div class="col-md-8">{{contact.firstName}} {{contact.lastName}}</div>
+        <div class="col-md-2" data-ng-bind="contact.email"></div>
+      </div>
+      <div class="row">
+        <div data-ng-bind="contact.message"></div>
+      </div>
+      <small>
+        <em class="text-muted">
+          <span data-ng-bind="contact.created | date:'mediumDate'"></span>
+          from
+          <span data-ng-bind="contact.user.displayName"></span>
+        </em>
+      </small>
+    </div>
+
+    <md-button data-ng-show="isAdmin.user" class="md-raised btn-warning" layout-align="end center" aria-label="delete"
+               data-ng-click="remove()">
+      <ng-md-icon icon="delete_forever"></ng-md-icon>
+    </md-button>
+
+  </div>
 </section>

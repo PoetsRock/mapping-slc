@@ -3,7 +3,7 @@
 
 angular.module('users')
 .config(function (LightboxProvider) {
-  LightboxProvider.fullScreenMode = false;
+  // LightboxProvider.fullScreenMode = false;
 })
 .controller('ContributorController', ['$scope', '$animate', '$location', 'Authentication', 'GetContributors', '$stateParams', '$http', '$uibModal', '$window', 'Lightbox', 'UtilsService',
   function ($scope, $animate, $location, Authentication, GetContributors, $stateParams, $http, $uibModal, $window, Lightbox, UtilsService) {

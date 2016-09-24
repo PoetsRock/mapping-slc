@@ -8,8 +8,6 @@ angular.module('admins').directive('projectMainTab', function () {
 
       $scope.states = getLists.listStates();
 
-      console.log('$scope.states:\n', $scope.states);
-
     }
 
   };

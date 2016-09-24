@@ -1,47 +1,36 @@
-<div>
-  <div class="row">
-    <div class="col-md-12">
+toggleEdit: {{toggleEdit}}
+<section layout="row" class="admin-project-editor">
 
 
-      <!--display wysiwyg editor-->
-      <div class="text-editor-window" data-ng-show="toggleEdit && toggleId===14">
-
-        <div class="row">
-          <div class="col-xs-12">
-            <!--todo add popup to confirm exit if project.story has been edited-->
-            <md-button data-ng-click="toggleEditFn(0)" class="md-raised md-warn md-btn" >Cancel</md-button>
-            <md-button class="md-raised md-primary md-btn" data-ng-click="toggleEdit = false">Preview</md-button>
-            <md-button class="md-raised md-primary md-btn" type="submit" data-ng-click="updateProjStory(14)">Save</md-button>
-            <!--<md-button class="md-fab" ng-disabled="false" aria-label="Comment">-->
-              <!--<md-icon md-svg-src="img/icons/ic_comment_24px.svg"></md-icon>-->
-            <!--</md-button>-->
-          </div>
-        </div>
-
-        <wysiwyg-editor></wysiwyg-editor>
-
-      </div>
-
-      <div class="row" data-ng-show="!toggleEdit">
-        <div class="col-xs-12">
-          <md-button data-ng-click="toggleEditFn(14, 'edit')" class="md-raised md-primary md-btn">Edit</md-button>
-      </div>
-
-      <hr/>
-
-      <!--display preview of project-->
-      <div data-ng-show="!toggleEdit">
-
-        <div class="row">
-          <div class="col-xs-12">
-
-            <div froala-view="project.story"></div>
-
-          </div>
-        </div>
-
-      </div>
-
+  <div layout="column" data-ng-show="!toggleEdit">
+    <div layout="row">
+      <md-button data-ng-click="toggleEditFn(14, 'edit', project, 'story')" class="md-raised md-primary md-btn">Edit
+      </md-button>
+      <md-button class="md-fab" ng-disabled="false" aria-label="Comment">
+        <ng-md-icon icon="ic_comment"> Comment</ng-md-icon>
+      </md-button>
     </div>
+
+    <!--display preview of project-->
+    <div class="wysiwyg-view" froala-view="project.story" layout="row"></div>
+
   </div>
-</div>
+
+  <!--display wysiwyg editor-->
+  <div class="text-editor-window" data-ng-show="toggleEdit && toggleId===14" layout="column">
+
+    <div layout="row">
+      <!--todo add popup to confirm exit if project.story has been edited-->
+      <md-button data-ng-click="toggleEditFn(0, 'cancel')" class="md-raised md-warn md-btn">Cancel</md-button>
+      <md-button class="md-raised md-primary md-btn" data-ng-click="toggleEdit = false">Preview</md-button>
+      <md-button class="md-raised md-primary md-btn" data-ng-click="updateProjStory(14)">Save</md-button>
+    </div>
+
+    <wysiwyg-editor></wysiwyg-editor>
+
+  </div>
+
+  <hr/>
+
+
+</section>

@@ -5,3 +5,13 @@
   .project-admin-features md-input-container md-select#status md-select-value span,
   .project-admin-features md-input-container md-select#category md-select-value span {
     font-size: 1.7rem; }
+
+.admin .admin-projects md-input-container ng-md-icon.sort-order-icon {
+  font-size: 48px; }
+
+.admin .admin-projects md-input-container ng-md-icon.sort-order-icon.sort-order-icon-dynamic {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
+
+section.admin-project-editor .wysiwyg-view {
+  margin: 2rem 0 0 1rem; }

@@ -40,8 +40,7 @@
 }
 
 .my-menu-main li.my-trigger {
-    TOP: 12px;
-    float: left !important;
+    top: 12px;
     position: relative;
     width: 60px;
 }
